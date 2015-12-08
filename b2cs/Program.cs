@@ -149,6 +149,7 @@ namespace b2cs
                         Action<long, long, TimeSpan> progressCallback = (long position, long total, TimeSpan elapsed) =>
                         {
                             Console.WriteLine("{0:N2}% ({1} / {2}) @ {3:N0}kiB/s", (double)position / (double)total * 100, position, total, (double)(position - lastUpdatePosition) / 1024 / elapsed.TotalSeconds);
+                            lastUpdatePosition = position;
                         };
 
                         B2api.UploadResponse? response = api.Upload(bucketId, sha1, filename, progressCallback);
