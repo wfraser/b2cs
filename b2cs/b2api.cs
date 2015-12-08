@@ -265,7 +265,7 @@ namespace b2cs
                 ((HttpWebRequest)uploadRequest).AllowWriteStreamBuffering = false;
 
                 DateTime lastUpdateTime = DateTime.Now;
-                byte[] buffer = new byte[16384];
+                byte[] buffer = new byte[8192];
                 using (var stream = uploadRequest.GetRequestStream())
                 {
                     if (progressCallback == null)
